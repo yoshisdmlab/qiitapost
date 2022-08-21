@@ -32,5 +32,13 @@ def submit_article(path):
 
 
 if __name__ == "__main__":
+    # 引数をチェックし一つ以外はエラーにする
+    args = sys.argv
+    if 2 == len(args):
+        CONF_DIR=args[1]
+    else:
+        print('Arguments are too match!')
+        sys.exit()
+
     res = submit_article(CONF_DIR).json()
     print(res["title"], res["url"])
